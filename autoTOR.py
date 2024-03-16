@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
-
 import time
 import os
 import subprocess
+import requests
 
 
 def install_package(package_name):
@@ -14,7 +13,7 @@ def install_package(package_name):
         print(f"[+] {package_name} not installed")
         subprocess.check_output("sudo apt update", shell=True)
         subprocess.check_output(f"sudo apt install {package_name} -y", shell=True)
-        print(f"[!] {package_name} installed succesfully")
+        print(f"[!] {package_name} installed successfully")
 
 
 def install_python_package(package_name):
@@ -22,7 +21,7 @@ def install_python_package(package_name):
         import package_name
     except Exception:
         print(f"[+] python3 {package_name} is not installed")
-        os.system(f"pip3 install {package_name}")
+        os.system(f"sudo pip3 install {package_name}")
         print(f"[!] python3 {package_name} is installed ")
 
 
@@ -36,7 +35,7 @@ def ma_ip():
 
 
 def change():
-    os.system("service tor reload")
+    os.system("sudo service tor reload")
     print("[+] Your IP has been Changed to : " + str(ma_ip()))
 
 
@@ -60,13 +59,13 @@ def main():
     )
     print("\033[1;40;31m http://facebook.com/ninja.hackerz.kurdish/\n")
 
-    os.system("service tor start")
+    os.system("sudo service tor start")
     time.sleep(3)
     print("\033[1;32;40m change your  SOCKES to 127.0.0.1:9050 \n")
-    os.system("service tor start")
+    os.system("sudo service tor start")
     x = input("[+] time to change Ip in Sec [type=60] >> ")
     lin = input(
-        "[+] how many time do you want to change your ip [type=1000]for infinte ip change type [0] >>"
+        "[+] how many times do you want to change your IP [type=1000] for infinite IP changes type [0] >>"
     )
     if int(lin) == int(0):
         while True:
