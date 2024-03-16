@@ -27,13 +27,14 @@ TorMorph is an advanced tool leveraging the Tor project to facilitate seamless I
 
 3. **Run the Installation Script:**
     ```
-    python3 install.py
+    sudo python3 install.py
     ```
 
 4. **Usage:**
     - Execute `aut` in your terminal from any location.
     - Use the `time` command to define IP change intervals.
     - Specify the number of IP changes (use `0` for continuous rotation).
+    - `Ctrl+c` to exit from TorMorph
 
 5. **Browser/PC Configuration:**
     - Configure your browser/system to use SOCKS proxy `127.0.0.1:9050`.
