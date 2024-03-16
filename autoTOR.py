@@ -35,6 +35,18 @@ def ma_ip():
 
 
 def change():
+    # Check if the directory '/run/tor' exists
+    if not os.path.exists('/run/tor'):
+        try:
+            # Create the directory '/run/tor' with appropriate permissions
+            os.makedirs('/run/tor', mode=0o755)
+            # Change ownership of the directory to the 'debian-tor' user and group
+            os.chown('/run/tor', uid=116, gid=126)  # 116: debian-tor (uid), 126: debian-tor (gid)
+        except Exception as e:
+            print(f"Failed to create '/run/tor' directory: {e}")
+            return
+    
+    # Now, continue with the rest of the operations
     os.system("sudo service tor reload")
     print("[+] Your IP has been Changed to : " + str(ma_ip()))
 
